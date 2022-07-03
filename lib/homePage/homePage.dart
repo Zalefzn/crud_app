@@ -1,3 +1,4 @@
+import 'package:find_content_app/cardUserPage/cardUser.dart';
 import 'package:find_content_app/method/sizeScreen/sizeScreen.dart';
 import 'package:find_content_app/method/theme/theme.dart';
 import 'package:find_content_app/provider/userProvider.dart';
@@ -25,6 +26,7 @@ class _HomePage extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    UserProviders user = Provider.of<UserProviders>(context);
     Widget contentHeaders() {
       return Container(
         padding: const EdgeInsets.all(20),
@@ -40,7 +42,7 @@ class _HomePage extends State<HomePage> {
                 )),
             Container(
                 height: SizeConfig.blockVertical * 4,
-                width: SizeConfig.blockHorizontal * 40,
+                width: SizeConfig.blockHorizontal * 45,
                 decoration: BoxDecoration(
                   color: backgroundColor3,
                   borderRadius: BorderRadius.circular(20),
@@ -60,8 +62,8 @@ class _HomePage extends State<HomePage> {
             Text('all users :',
                 style: TextStyle(
                     color: textColor2,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400)),
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500)),
             IconButton(
                 onPressed: () {},
                 icon: const Icon(
@@ -76,22 +78,15 @@ class _HomePage extends State<HomePage> {
 
     Widget content() {
       return Container(
-        height: SizeConfig.blockVertical * 60,
+        height: SizeConfig.blockVertical * 62,
         width: SizeConfig.blockHorizontal * 90,
         decoration: BoxDecoration(
           color: backgroundColor2,
         ),
-        child: Row(
-          children: [
-            Container(
-              height: SizeConfig.blockVertical * 8,
-              width: SizeConfig.blockHorizontal * 20,
-              decoration: BoxDecoration(
-                color: backgroundColor3,
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: user.users.map((user) => CardUser(user)).toList(),
+          ),
         ),
       );
     }

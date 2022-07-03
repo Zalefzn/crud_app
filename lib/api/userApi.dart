@@ -28,4 +28,20 @@ class UserService {
       throw Exception('Gagal Get Users');
     }
   }
+
+//   Future<List<UserModel>> postUser() async {
+//     var url = 'https://dummyapi.io/data/v1/user/create';
+//     var headers = {
+//       'app-id': '62bd70e0f59e70eac0ec8adb',
+//       'Authorization': 'Bearer 62bd70e0f59e70eac0ec8adb',
+//       'Content-Type': 'application/json',
+//     };
+
+//     var queryUser = jsonEncode({
+//       'firstName':
+//       'lastName':
+//       'email':
+//     });
+//   }
+// }
 }

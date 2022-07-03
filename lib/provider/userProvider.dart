@@ -12,10 +12,6 @@ class UserProviders with ChangeNotifier {
     notifyListeners();
   }
 
-  UserById(UserModel user) async {
-    var dataUser = user.id;
-  }
-
   Future<void> getUsers() async {
     try {
       List<UserModel> users = await UserService().getUser();
